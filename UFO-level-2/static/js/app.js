@@ -13,29 +13,17 @@ button.on("click", () => {
     var inputCountry = d3.select("#country").property("value");
     var inputShape = d3.select("#shape").property("value");
 
-    // get the value of the element
-    //var inputValue = inputElement.property("value");
     // debug echo to console to test
     console.log(inputDate,inputCity,inputState,inputCountry,inputShape);
 
     // clear out any prior results!!!
     tbody.html("");
 
-    // clean function to remove null, undefined, or empty string elements from an array
-    function clean(obj) {
-      for (var propName in obj) { 
-        if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "") {
-          delete obj[propName];
-        }
-      }
-    }
-
-    // apply our filter
-    //var tableData = data.filter(selectDate);
+    // build our array object of filter criteria
     var query = {datetime:inputDate,city:inputCity,state:inputState,country:inputCountry,shape:inputShape};
     //debug to show raw query
     console.log(query);
-    // clean our query so it only tries to filter on supplied values
+    // clean our query so it only tries to filter on supplied values (ignore undefined, null or "")
     clean(query);
     //debug to validate cleaned query
     console.log(query);
@@ -65,3 +53,11 @@ button.on("click", () => {
 });
 
 
+    // clean function to remove null, undefined, or empty string elements from an array
+    function clean(obj) {
+      for (var propName in obj) { 
+        if (obj[propName] === null || obj[propName] === undefined || obj[propName] === "") {
+          delete obj[propName];
+        }
+      }
+    }
