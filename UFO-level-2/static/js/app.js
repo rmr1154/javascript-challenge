@@ -8,10 +8,10 @@ var button = d3.select("#filter-btn");
 button.on("click", () => {
     // select the input element
     var inputDate = d3.select("#datetime").property("value");
-    var inputCity = d3.select("#city").property("value");
-    var inputState = d3.select("#state").property("value");
-    var inputCountry = d3.select("#country").property("value");
-    var inputShape = d3.select("#shape").property("value");
+    var inputCity = d3.select("#city").property("value").toLowerCase();
+    var inputState = d3.select("#state").property("value").toLowerCase();
+    var inputCountry = d3.select("#country").property("value").toLowerCase();
+    var inputShape = d3.select("#shape").property("value").toLowerCase();
 
     // debug echo to console to test
     console.log(inputDate,inputCity,inputState,inputCountry,inputShape);
